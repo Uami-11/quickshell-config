@@ -360,6 +360,7 @@ Singleton {
             }
 
             property JsonObject light: JsonObject {
+                property string brightnessDevice: "intel_backlight"
                 property JsonObject night: JsonObject {
                     property bool automatic: true
                     property string from: "19:00" // Format: "HH:mm", 24-hour time

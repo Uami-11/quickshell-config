@@ -28,7 +28,7 @@ LockScreen {
                 }
             }
             if (batch.length > 0) {
-                Quickshell.execDetached(["hyprctl", "--batch", batch])
+                Quickshell.execDetached(["hyprctl", "--batch", batch + "reload"])
             }
         }
     }
@@ -53,7 +53,7 @@ LockScreen {
                     batch += "dispatch focusmonitor " + mon + "; dispatch workspace " + (2147483647 - ws) + "; "
                 }
                 root.savedWorkspaces = next
-                Quickshell.execDetached(["hyprctl", "--batch", batch])
+                Quickshell.execDetached(["hyprctl", "--batch", batch + "reload"])
             } else {
                 restoreTimer.start()
             }

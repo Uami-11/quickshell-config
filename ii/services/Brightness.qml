@@ -27,7 +27,7 @@ Singleton {
         return monitors.find(m => m.screen === screen);
     }
 
-    function increaseBrightness(): void {
+    function increaseBrightness(step = 0.05): void {
         // if gamma is not yet 100, first increase gamma
         if (Hyprsunset.gamma !== 100) {
             Hyprsunset.setGamma(Hyprsunset.gamma + 5);
@@ -37,14 +37,14 @@ Singleton {
         const focusedName = Hyprland.focusedMonitor.name;
         const monitor = monitors.find(m => focusedName === m.screen.name);
         if (monitor)
-            monitor.setBrightness(monitor.brightness + 0.05);
+            monitor.setBrightness(monitor.brightness + step);
     }
 
-    function decreaseBrightness(): void {
+    function decreaseBrightness(step = 0.05): void {
         const focusedName = Hyprland.focusedMonitor.name;
         const monitor = monitors.find(m => focusedName === m.screen.name);
         if (monitor && monitor.brightness > 0) 
-            monitor.setBrightness(monitor.brightness - 0.05);
+            monitor.setBrightness(monitor.brightness - step);
         // if brightness is 0, then decrease gamma
         else {
             Hyprsunset.setGamma(Hyprsunset.gamma - 5);
